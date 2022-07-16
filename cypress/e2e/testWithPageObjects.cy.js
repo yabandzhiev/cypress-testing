@@ -1,3 +1,4 @@
+import { onDatePickerPage } from "../support/page_objects/datepickerPage";
 import { onFormLayoutsPage } from "../support/page_objects/formLayoutsPage";
 import { navigateTo } from "../support/page_objects/navigationPage";
 
@@ -20,5 +21,12 @@ describe("Test with Page Objects", () => {
       "Artem",
       "test@test.com"
     );
+    onFormLayoutsPage.submitBasicFormWithEmailAndPassword(
+      "test@test.com",
+      "password"
+    );
+    navigateTo.datePickerPage();
+    onDatePickerPage.selectCommonDatepickerDateFromToday(1);
+    onDatePickerPage.selectDatepickerWithRangeFromToday(7, 14);
   });
 });
